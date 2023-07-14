@@ -1,18 +1,28 @@
 #include "shell.h"
-
+/**
+ *_strlen - fuction to count the length of a string.
+ *@str: pointer to a string to count the length
+ *
+ *Return: returns the length of the string.
+ */
 
 unsigned int _strlen(char *str)
 {
 	unsigned int len = 0;
 
-	while(*str)
+	while (*str)
 	{
 		len++;
 		str++;
 	}
 	return (len);
 }
-
+/**
+ *_duplicate - function to create a string duplicate.
+ *@str: pointer to a string to create its duplicate.
+ *
+ *Return: a pointer to a duplicated string.
+ */
 char *_duplicate(char *str)
 {
 	char *duplicate;
@@ -35,16 +45,22 @@ char *_duplicate(char *str)
 	return (duplicate);
 
 }
-
+/**
+ *count - a function that receives a pointer to a string and determines the
+ *	the number of tokens that can be deduced from it.
+ *@lineptr: a pointer to a string to counter possible number of tokens to be
+ *	extrcted.
+ *Return: possible number of tokens to be created.
+ */
 unsigned int count(char *lineptr)
 {
 	int tokens = 0;
 	char *token = NULL;
 	char *cpy = _duplicate(lineptr);
 	char delim[] = " ";
-	token = strtok(cpy, delim);
 
-	while(token != NULL)
+	token = strtok(cpy, delim);
+	while (token != NULL)
 	{
 		tokens++;
 		token = strtok(NULL, delim);
