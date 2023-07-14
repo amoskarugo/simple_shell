@@ -20,9 +20,9 @@ int shell_interactive(char **args, char **envp_vars)
 		int i = 0;
 		char **commands = tokenizer(delim, line);
 
-		_execCmd(counter, commands, envp_vars);
+		_execCmd(counter, commands, args, envp_vars);
 		free(line);
-		free(commands);
+		free_block(commands);
 	}
 	return (0);
 }

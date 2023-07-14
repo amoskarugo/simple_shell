@@ -11,7 +11,7 @@
 
 int shell_interactive(char **args, char **envp_vars);
 int shell_non_interactive(void);
-int _execCmd(int count, char **args, char **env_vars);
+int _execCmd(int count, char **args,char **argv, char **env_vars);
 char *get_line();
 
 /*STINGS OPERATIONS*/
