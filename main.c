@@ -9,7 +9,7 @@
 
 int main(int ac, char *argv[], char *envp[])
 {
-	unsigned int i = 7;
+	signal(SIGINT, _sigHandler);
 
 	if (isatty(STDIN_FILENO) == 1)
 	{

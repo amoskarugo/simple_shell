@@ -18,7 +18,10 @@ int shell_interactive(char **args, char **envp_vars)
 		write(STDOUT_FILENO, "$:", _strlen("$:"));
 		char *line = get_line();
 		if (*line == '\n' || *line == '\0' || *line == '\t' || *line == ' ')
+		{
+			free(line);
 			continue;
+		}
 		char **commands = tokenizer(line, delim);
 
 		execute_cmd(counter, commands, args, envp_vars);

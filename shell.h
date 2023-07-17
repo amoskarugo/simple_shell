@@ -35,7 +35,7 @@ int shell_non_interactive(void);
 int _execCmd(int count, char **args,char **argv, char **env_vars);
 int execute_cmd(int counter, char *args[],char *argv[], char *envp_vars[]);
 char *get_line();
-char *path(char *cmd, char *envp_vars[]);
+char *path(char *cmd[], char *envp_vars[]);
 int my_atoi(const char *s);
 void _sigHandler(__attribute__((unused))int num);
 void error_msg(int counter, char *args[], char *argv[]);

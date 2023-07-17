@@ -11,7 +11,10 @@ int shell_exit(char *args[])
 	int exitcode;
 
 	if(args[1] == NULL)
+	{
+		free_block(args);
 		exit(0);
+	}
 
 	exitcode = my_atoi(args[1]);
 	free_block(args);
