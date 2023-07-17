@@ -13,6 +13,7 @@ int main(int ac, char *argv[], char *envp[])
 
 	if (isatty(STDIN_FILENO) == 1)
 	{
+		fflush(stdout);
 		shell_interactive(argv, envp);
 	} else
 	{

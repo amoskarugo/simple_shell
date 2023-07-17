@@ -10,18 +10,18 @@ int shell_interactive(char **args, char **envp_vars)
 {
 	unsigned int counter = 0; /*tracks the number of commands executed*/
 	int  status = 1;
-	char *delim = " \t\n";
+	char *delim = "\t\n ";
 
 	while (status)
 	{
 		counter++;
-		write(STDOUT_FILENO, "simple_shell-$:", _strlen("simple_shell-$:"));
+		write(STDOUT_FILENO, "$:", _strlen("$:"));
 		char *line = get_line();
-		int i = 0;
-		char **commands = tokenizer(delim, line);
+		if (*line == '\n' || *line == '\0' || *line == '\t' || *line == ' ')
+			continue;
+		char **commands = tokenizer(line, delim);
 
-		_execCmd(counter, commands, args, envp_vars);
-		free(line);
+		execute_cmd(counter, commands, args, envp_vars);
 		free_block(commands);
 	}
 	return (0);

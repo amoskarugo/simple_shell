@@ -52,12 +52,11 @@ char *_duplicate(char *str)
  *	extrcted.
  *Return: possible number of tokens to be created.
  */
-unsigned int count(char *lineptr)
+unsigned int count(char *lineptr, char *delim)
 {
 	int tokens = 0;
 	char *token = NULL;
 	char *cpy = _duplicate(lineptr);
-	char delim[] = " ";
 
 	token = strtok(cpy, delim);
 	while (token != NULL)
@@ -69,3 +68,33 @@ unsigned int count(char *lineptr)
 	free(cpy);
 	return (tokens);
 }
+/**
+ *_strncmp - compares whether two strinds are the same upto nth character.
+ *@s1: string 1.
+ *@s2: string 2.
+ *@sz: length of string 1
+ *Return: returns 0 if the strings are the same else it returns -1
+ */
+
+int _strncmp(char *s1, char *s2, int sz)
+{
+	int j = 0;
+
+	if(s1[j] == '\0' || s2[j] == '\0')
+		return (-1);
+	while (s1[j] != '\0' || j < sz)
+	{
+		if (s1[j] == s2[j])
+		{
+			j++;
+			continue;
+		}
+		if (s1[j] != s2[j])
+			return (-1);
+	}
+	return (0);
+}
+
+
+
+

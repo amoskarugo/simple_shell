@@ -5,7 +5,10 @@ char *get_line()
 {
 	char *lineptr = NULL;
 	size_t n = 0;
-	if(getline(&lineptr, &n, stdin) != -1)
+	ssize_t readln = 0;
+
+	readln = getline(&lineptr, &n, stdin);
+	if(readln != -1)
 	{
 		return (lineptr);
 
@@ -13,6 +16,7 @@ char *get_line()
 	{
 		free(lineptr);
 		write(STDOUT_FILENO, "\n", 1);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
+		/*signal(SIGINT, _sigHandler);*/
 	}
 }
