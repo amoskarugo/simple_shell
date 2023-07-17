@@ -17,7 +17,7 @@ int main(int ac, char *argv[], char *envp[])
 		shell_interactive(argv, envp);
 	} else
 	{
-		shell_non_interactive();
+		shell_non_interactive(argv, envp);
 	}
 	return (0);
 }

@@ -16,7 +16,7 @@ char **tokenizer(char *lineptr, char *delim)
 	char **tokens = NULL;
 	unsigned int i = 0;
 
-	token = strtok(cpy, delim);
+	token = my_strtok(cpy, delim);
 	tokens = malloc(sizeof(char *) * (tok_count + 1));
 
 	if (tokens == NULL)
@@ -27,7 +27,7 @@ char **tokenizer(char *lineptr, char *delim)
 		tokens[i] = malloc(sizeof(char) * (_strlen(token) + 1));
 		str_cpy(tokens[i], token);
 		/*tokens[i] = _duplicate(token);*/
-		token = strtok(NULL, delim);
+		token = my_strtok(NULL, delim);
 		i++;
 	}
 
@@ -81,3 +81,71 @@ void str_cpy(char *s1, char *s2)
 	}
 	s1[i] = '\0';
 }
+
+
+
+
+/**
+*_delim - checks for a delimeter
+*@c: character to be checked
+*@delim: delimeter
+*Return: nothing
+*/
+unsigned int _delim(char c, char *delim)
+{
+	while (*delim != '\0')
+	{
+		if (c == *delim)
+			return (1);
+		delim++;
+	}
+	return (0);
+}
+
+/**
+*my_strtok - a function for tokenizing a string
+*@str: string to be tokenized
+*@delim: delimeter
+*Return: returns null when it reaches end else returns a string token
+*/
+char *my_strtok(char *str, char *delim)
+{
+	static char *bck_str;/* start of the next split */
+	char *res;
+
+	if (!str)
+	{
+		str = bck_str;
+	}
+	if (!str)
+		return (NULL);
+	while (1) /*handling start of the string containing delims*/
+	{
+		if (_delim(*str, delim))
+		{
+			str++;
+			continue;
+		}
+		if (*str == '\0')
+			return (NULL);/*reached end of the line*/
+		break;
+	}
+	res = str;
+	while (1)
+	{
+		if (*str == '\0')
+		{
+			bck_str = str;/*input end next execute returns NULL */
+			return (res);
+		}
+		if (_delim(*str, delim))
+		{
+			*str = '\0';
+			bck_str = str + 1;
+			return (res);
+		}
+		str++;
+	}
+}
+
+

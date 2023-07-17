@@ -10,6 +10,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#define BUFF_SIZE 128
 extern char **environ;
 /**
  *struct built-in_funcs - structure for built in functions
@@ -31,7 +32,7 @@ int my_cd(char *args[]);
 int my_help(char *args[]);
 
 int shell_interactive(char **args, char **envp_vars);
-int shell_non_interactive(void);
+int shell_non_interactive(char *args[], char *envp_vars[]);
 int _execCmd(int count, char **args,char **argv, char **env_vars);
 int execute_cmd(int counter, char *args[],char *argv[], char *envp_vars[]);
 char *get_line();
@@ -44,6 +45,9 @@ char *_duplicate(char *str);
 void str_cpy(char *s1, char *s2);
 void free_block(char **args);
 char *s_concat(char *s1, char *s2);
+char *my_strtok(char *str, char *delim);
+unsigned int _delim(char c, char *delim);
+ssize_t read_stdin(char **line, size_t *bytes);
 
 unsigned int _strlen(char *str);
 unsigned int count(char *lineptr, char *delim);

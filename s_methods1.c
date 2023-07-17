@@ -58,11 +58,11 @@ unsigned int count(char *lineptr, char *delim)
 	char *token = NULL;
 	char *cpy = _duplicate(lineptr);
 
-	token = strtok(cpy, delim);
+	token = my_strtok(cpy, delim);
 	while (token != NULL)
 	{
 		tokens++;
-		token = strtok(NULL, delim);
+		token = my_strtok(NULL, delim);
 	}
 
 	free(cpy);
