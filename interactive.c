@@ -15,6 +15,7 @@ int shell_interactive(char **args, char **envp_vars)
 	int  status = 1;
 	char *delim = "\t\n ";
 	char *line;
+	char **commands;
 
 	while (status)
 	{
@@ -26,7 +27,7 @@ int shell_interactive(char **args, char **envp_vars)
 			free(line);
 			continue;
 		}
-		char **commands = tokenizer(line, delim);
+		commands = tokenizer(line, delim);
 
 		execute_cmd(counter, commands, args, envp_vars);
 		free_block(commands);

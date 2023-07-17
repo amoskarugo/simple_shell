@@ -11,6 +11,7 @@ int main(int ac, char *argv[], char *envp[])
 {
 	signal(SIGINT, _sigHandler);
 
+	(void)ac;
 	if (isatty(STDIN_FILENO) == 1)
 	{
 		fflush(stdout);

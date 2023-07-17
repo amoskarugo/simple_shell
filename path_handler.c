@@ -9,7 +9,7 @@
 
 char *path(char *cmd[], char *envp_vars[])
 {
-	char *cmd_path = NULL, path_var = NULL, *delim = "PATH=:";
+	char *cmd_path = NULL, *path_var = NULL, *delim = "PATH=:";
 	char **paths, *copy = NULL, *str = "PATH=";
 	char *path = NULL, *full_path = NULL;
 	int i = 0, j = 0;
