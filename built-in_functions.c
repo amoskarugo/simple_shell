@@ -10,7 +10,7 @@ int shell_exit(char *args[])
 {
 	int exitcode;
 
-	if(args[1] == NULL)
+	if (args[1] == NULL)
 	{
 		free_block(args);
 		exit(0);
@@ -23,7 +23,7 @@ int shell_exit(char *args[])
 
 /**
  *print_env - prints all the environment variables.
- *@args: an array of environment variables.
+ *@envp_vars: an array of environment variables.
  *Return: nothing
  *
  */
@@ -31,6 +31,7 @@ int shell_exit(char *args[])
 int print_env(char *envp_vars[])
 {
 	int i = 0;
+
 	envp_vars = environ;
 
 	while (envp_vars[i] != NULL)

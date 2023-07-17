@@ -48,6 +48,12 @@ ssize_t read_stdin(char **line, size_t *bytes)
 	return ((_read > 0 || buf_sz > 0) ? total : -1);
 }
 
+/**
+ *get_line - gets the line read from the stdin.
+ *Return: returns a pointer to a string read from the stdin stream.
+ *
+ */
+
 
 char *get_line()
 {
@@ -56,11 +62,11 @@ char *get_line()
 	ssize_t readln = 0;
 
 	readln = read_stdin(&lineptr, &n);
-	if(readln != -1)
+	if (readln != -1)
 	{
 		return (lineptr);
 
-	}else
+	} else
 	{
 		free(lineptr);
 		write(STDOUT_FILENO, "\n", 1);

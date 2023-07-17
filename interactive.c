@@ -2,6 +2,9 @@
 /**
  *shell_interactive - function executed when the program is run
  *                    in interactive mode
+ *@args: a vector containing pointers to strings passed from the
+ *		main function.
+ *@envp_vars: environment variables
  *Return: nothing(0)
  *
  *
@@ -11,12 +14,13 @@ int shell_interactive(char **args, char **envp_vars)
 	unsigned int counter = 0; /*tracks the number of commands executed*/
 	int  status = 1;
 	char *delim = "\t\n ";
+	char *line;
 
 	while (status)
 	{
 		counter++;
 		write(STDOUT_FILENO, "$:", _strlen("$:"));
-		char *line = get_line();
+		line = get_line();
 		if (*line == '\n' || *line == '\0' || *line == '\t' || *line == ' ')
 		{
 			free(line);

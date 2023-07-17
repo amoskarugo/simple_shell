@@ -7,8 +7,12 @@
 *		whether the command is a built in or non-bultin and directs it
 *		to the respective function for exxecution.
  *@args: a vector containing commands
- *
- *Return: returns a value returned from the function that executed the passed command.
+ *@counter: keeps track of the number of executed commands.
+ *@argv: contains arguments passed to the main function whent
+ *	 the program is executed.
+ *@envp_vars: vector containing environment variables
+ *Return: returns a value returned from the function that
+ *        executed the passed command.
  */
 
 

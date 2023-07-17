@@ -37,7 +37,12 @@ char **tokenizer(char *lineptr, char *delim)
 
 	return (tokens);
 }
-
+/**
+ *s_concat - function to merge two strings
+ *@s1: first string.
+ *@s2: second string.
+ *Return: returns a pointer to merged string
+ */
 
 char *s_concat(char *s1, char *s2)
 {
@@ -67,7 +72,11 @@ char *s_concat(char *s1, char *s2)
 	return (new_string);
 
 }
-
+/**
+ *str_cpy - function to create a copy of a string.
+ *@s1: copy of original string.
+ *@s2: original string to create a copy from.
+ */
 
 void str_cpy(char *s1, char *s2)
 {

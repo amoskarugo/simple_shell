@@ -1,12 +1,15 @@
 #include "shell.h"
 
-
+/**
+ *free_block - fuction that handles memory deallocation.
+ *@args: memory to free.
+ */
 void free_block(char **args)
 {
 
 	int i = 0;
 
-	for(i = 0; args[i] != NULL; i++)
+	for (i = 0; args[i] != NULL; i++)
 	{
 		free(args[i]);
 	}
@@ -45,7 +48,12 @@ int my_atoi(const char *s)
 
 	return (res);
 }
-
+/**
+ *error_msg - function to print error messages on the console.
+ *@args: array of string pointers.
+ *@counter: number of command executed
+ *@argv: array of string pointers
+ */
 
 void error_msg(int counter, char *args[], char *argv[])
 {
@@ -65,7 +73,10 @@ void error_msg(int counter, char *args[], char *argv[])
 	write(STDOUT_FILENO, "\n", 1);
 
 }
-
+/**
+ *_sigHandler - handles signals
+ *@num: signal code.
+ */
 void _sigHandler(__attribute__((unused))int num)
 {
 	write(STDOUT_FILENO, "\n", 1);

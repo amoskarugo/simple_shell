@@ -13,7 +13,7 @@
 #define BUFF_SIZE 128
 extern char **environ;
 /**
- *struct built-in_funcs - structure for built in functions
+ *struct builtin_funcs - structure for built in functions
  *@cmd: name of the command
  *@function: function pointer
  *
@@ -22,7 +22,7 @@ typedef struct builtin_funcs
 {
 	char *cmd;
 	int (*function)(char **);
-}built_in;
+} built_in;
 
 /*BUILT IN FUNCTIONS PROTOTYPES*/
 
@@ -33,8 +33,8 @@ int my_help(char *args[]);
 
 int shell_interactive(char **args, char **envp_vars);
 int shell_non_interactive(char *args[], char *envp_vars[]);
-int _execCmd(int count, char **args,char **argv, char **env_vars);
-int execute_cmd(int counter, char *args[],char *argv[], char *envp_vars[]);
+int _execCmd(int count, char **args, char **argv, char **env_vars);
+int execute_cmd(int counter, char *args[], char *argv[], char *envp_vars[]);
 char *get_line();
 char *path(char *cmd[], char *envp_vars[]);
 int my_atoi(const char *s);

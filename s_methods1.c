@@ -50,6 +50,7 @@ char *_duplicate(char *str)
  *	the number of tokens that can be deduced from it.
  *@lineptr: a pointer to a string to counter possible number of tokens to be
  *	extrcted.
+ *@delim: delimeter.
  *Return: possible number of tokens to be created.
  */
 unsigned int count(char *lineptr, char *delim)
@@ -80,7 +81,7 @@ int _strncmp(char *s1, char *s2, int sz)
 {
 	int j = 0;
 
-	if(s1[j] == '\0' || s2[j] == '\0')
+	if (s1[j] == '\0' || s2[j] == '\0')
 		return (-1);
 	while (s1[j] != '\0' || j < sz)
 	{
