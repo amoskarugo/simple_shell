@@ -42,3 +42,36 @@ int print_env(char *envp_vars[])
 	}
 	return (0);
 }
+
+/**
+ *_setenv - function to create a new environment variable
+ *@args: commands and arguments passed from the command line
+ *Return: 0
+ */
+int _setenv(char *args[])
+{
+	int j = 0, i = 0, k = 0;
+	char var_name[30] =  "", *copy = NULL;
+	char *var = "USER", *assign_op = "=";
+
+	copy = _duplicate(args[1]);
+	while (copy[k] != '\0')
+	{
+		var_name[i] = copy[k];
+		i++;
+		k++;
+	}
+	free(copy);
+	var_name[i] = *assign_op;
+	while (environ[j] != NULL)
+	{
+		if (_strncmp(var, environ[j], _strlen(var)) == 0)
+		{
+			str_cpy(environ[j], var_name);
+		}
+
+		j++;
+	}
+
+	return (0);
+}

@@ -24,6 +24,7 @@ int execute_cmd(int counter, char *args[], char *argv[], char *envp_vars[])
 
 		{"exit", &shell_exit},
 		{"env", &print_env},
+		{"setenv", &_setenv},
 		{NULL, NULL}
 	};
 

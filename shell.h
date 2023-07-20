@@ -30,6 +30,7 @@ int shell_exit(char *args[]);
 int print_env(char *envp_vars[]);
 int my_cd(char *args[]);
 int my_help(char *args[]);
+int _setenv(char *args[]);
 
 int shell_interactive(char **args, char **envp_vars);
 int shell_non_interactive(char *args[], char *envp_vars[]);
