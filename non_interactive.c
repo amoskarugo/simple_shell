@@ -10,7 +10,7 @@ int shell_non_interactive(char *args[], char *envp_vars[])
 {
 	char *line;
 	char *delim = "\t\n ";
-	int counter = 0;
+	int counter = 1;
 	char **commands;
 
 	line = get_line();
@@ -19,7 +19,7 @@ int shell_non_interactive(char *args[], char *envp_vars[])
 		free(line);
 		exit(EXIT_SUCCESS);
 	}
-	commands = tokenizer(line, delim);
+	commands = tokens_generator(line, delim);
 	if (commands == NULL)
 	{
 		exit(EXIT_SUCCESS);

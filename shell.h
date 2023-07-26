@@ -2,6 +2,7 @@
 #define SHELL_H
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -43,15 +44,16 @@ void _sigHandler(__attribute__((unused))int num);
 void error_msg(int counter, char *args[], char *argv[]);
 /*STINGS OPERATIONS*/
 char *_duplicate(char *str);
-void str_cpy(char *s1, char *s2);
+void make_copy(char *s1, char *s2);
 void free_block(char **args);
-char *s_concat(char *s1, char *s2);
+char *merge_strings(char *s1, char *s2);
 char *my_strtok(char *str, char *delim);
 unsigned int _delim(char c, char *delim);
-ssize_t read_stdin(char **line, size_t *bytes);
+ssize_t read_input(char **line, size_t *bytes);
 
 unsigned int _strlen(char *str);
+bool multi(char *args[]);
 unsigned int count(char *lineptr, char *delim);
-int _strncmp(char *s1, char *s2, int sz);
-char **tokenizer(char *lineptr, char *delim);
+int custom_strncmp(char *s1, char *s2, int sz);
+char **tokens_generator(char *lineptr, char *delim);
 #endif

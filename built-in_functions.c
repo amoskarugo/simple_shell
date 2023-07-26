@@ -67,9 +67,9 @@ int _setenv(char *args[])
 	var_name[i] = *assign_op;
 	while (environ[j] != NULL)
 	{
-		if (_strncmp(var, environ[j], _strlen(var)) == 0)
+		if (custom_strncmp(var, environ[j], _strlen(var)) == 0)
 		{
-			str_cpy(environ[j], var_name);
+			make_copy(environ[j], var_name);
 		}
 
 		j++;

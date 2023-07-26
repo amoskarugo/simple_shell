@@ -14,7 +14,6 @@ int _execCmd(int count, char **args, char **argv, char **env_vars)
 	char *cmd_path = path(args, env_vars);
 	pid_t pid;
 
-
 	if (cmd_path == NULL)
 	{
 		error_msg(count, args, argv);
@@ -26,7 +25,9 @@ int _execCmd(int count, char **args, char **argv, char **env_vars)
 	{
 
 		if (execve(cmd_path, args, env_vars) == -1)
-			perror("Error!");
+		{
+			perror(args[0]);
+		}
 	}
 	else
 	{

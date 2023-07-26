@@ -70,14 +70,15 @@ unsigned int count(char *lineptr, char *delim)
 	return (tokens);
 }
 /**
- *_strncmp - compares whether two strinds are the same upto nth character.
+ *custom_strncmp - compares whether two strinds are the same
+ *			upto nth character.
  *@s1: string 1.
  *@s2: string 2.
  *@sz: length of string 1
  *Return: returns 0 if the strings are the same else it returns -1
  */
 
-int _strncmp(char *s1, char *s2, int sz)
+int custom_strncmp(char *s1, char *s2, int sz)
 {
 	int j = 0;
 

@@ -30,7 +30,7 @@ int shell_interactive(char **args, char **envp_vars)
 			continue;
 		}
 
-		commands = tokenizer(line, delim);
+		commands = tokens_generator(line, delim);
 		if (commands == NULL)
 		{
 			continue;

@@ -2,14 +2,14 @@
 
 
 /**
-*tokenizer - a functions that generates tokens from a string
+*tokens_generator - a functions that generates tokens from a string
 *@delim: a pointer to a string that specifies a set of characters
 *	that delimit the tokens in the parsed string.
 *@lineptr: a pointer to the string to generate tokens from.
 *Return: returns an array of generated tokens or null if the string was empty
 */
 
-char **tokenizer(char *lineptr, char *delim)
+char **tokens_generator(char *lineptr, char *delim)
 {
 	char *cpy = _duplicate(lineptr), *token = NULL;
 	int tok_count = count(cpy, delim);
@@ -25,7 +25,7 @@ char **tokenizer(char *lineptr, char *delim)
 	while (token != NULL)
 	{
 		tokens[i] = malloc(sizeof(char) * (_strlen(token) + 1));
-		str_cpy(tokens[i], token);
+		make_copy(tokens[i], token);
 		/*tokens[i] = _duplicate(token);*/
 		token = my_strtok(NULL, delim);
 		i++;
@@ -43,13 +43,13 @@ char **tokenizer(char *lineptr, char *delim)
 	return (tokens);
 }
 /**
- *s_concat - function to merge two strings
+ *merge_strings - function to merge two strings
  *@s1: first string.
  *@s2: second string.
  *Return: returns a pointer to merged string
  */
 
-char *s_concat(char *s1, char *s2)
+char *merge_strings(char *s1, char *s2)
 {
 	char *new_string;
 
@@ -78,12 +78,12 @@ char *s_concat(char *s1, char *s2)
 
 }
 /**
- *str_cpy - function to create a copy of a string.
+ *make_copy - function to create a copy of a string.
  *@s1: copy of original string.
  *@s2: original string to create a copy from.
  */
 
-void str_cpy(char *s1, char *s2)
+void make_copy(char *s1, char *s2)
 {
 	int i = 0;
 
@@ -125,7 +125,7 @@ unsigned int _delim(char c, char *delim)
 char *my_strtok(char *str, char *delim)
 {
 	static char *bck_str;/* start of the next split */
-	char *res;
+	char *result;
 
 	if (!str)
 	{
@@ -144,19 +144,19 @@ char *my_strtok(char *str, char *delim)
 			return (NULL);/*reached end of the line*/
 		break;
 	}
-	res = str;
+	result = str;
 	while (1)
 	{
 		if (*str == '\0')
 		{
 			bck_str = str;/*input end next execute returns NULL */
-			return (res);
+			return (result);
 		}
 		if (_delim(*str, delim))
 		{
 			*str = '\0';
 			bck_str = str + 1;
-			return (res);
+			return (result);
 		}
 		str++;
 	}

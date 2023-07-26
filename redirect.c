@@ -30,7 +30,7 @@ int execute_cmd(int counter, char *args[], char *argv[], char *envp_vars[])
 
 	for (j = 0; cmds[j].cmd != NULL; j++)
 	{
-		if (_strncmp(cmds[j].cmd, args[0], _strlen(args[0])) == 0)
+		if (custom_strncmp(cmds[j].cmd, args[0], _strlen(args[0])) == 0)
 		{
 			return ((cmds[j].function(args)));
 		}

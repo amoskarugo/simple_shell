@@ -21,18 +21,18 @@ char *path(char *cmd[], char *envp_vars[])
 	}
 	while (envp_vars[i] != NULL)
 	{
-		if (_strncmp(str, envp_vars[i], _strlen(str)) == 0)
+		if (custom_strncmp(str, envp_vars[i], _strlen(str)) == 0)
 		{
 			cmd_path = envp_vars[i];
 		}
 		i++;
 	}
 	copy = _duplicate(cmd_path);
-	paths = tokenizer(copy, delim);
+	paths = tokens_generator(copy, delim);
 	for (j = 0; paths[j] != NULL; j++)
 	{
-		path = s_concat(paths[j], "/");
-		full_path = s_concat(path, cmd[0]);
+		path = merge_strings(paths[j], "/");
+		full_path = merge_strings(path, cmd[0]);
 		if (access(full_path, X_OK) == 0)
 		{
 			path_var = _duplicate(full_path);
