@@ -22,7 +22,7 @@ int shell_non_interactive(char *args[], char *envp_vars[])
 	commands = tokenizer(line, delim);
 	if (commands == NULL)
 	{
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 
 	execute_cmd(counter, commands, args, envp_vars);
