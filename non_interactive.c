@@ -27,7 +27,7 @@ int shell_non_interactive(char *args[], char *envp_vars[])
 
 	execute_cmd(counter, commands, args, envp_vars);
 
-	free(commands);
+	free_block(commands);
 
 
 	exit(EXIT_SUCCESS);
