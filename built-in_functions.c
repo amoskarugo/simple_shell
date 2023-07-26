@@ -54,6 +54,8 @@ int _setenv(char *args[])
 	char var_name[30] =  "", *copy = NULL;
 	char *var = "USER", *assign_op = "=";
 
+	if (args[1] == NULL)
+		return (0);
 	copy = _duplicate(args[1]);
 	while (copy[k] != '\0')
 	{

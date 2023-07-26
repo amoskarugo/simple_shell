@@ -14,16 +14,27 @@ int _execCmd(int count, char **args, char **argv, char **env_vars)
 	char *cmd_path = path(args, env_vars);
 	pid_t pid;
 
+
+	if (cmd_path == NULL)
+	{
+		error_msg(count, args, argv);
+		return (status);
+	}
+
 	pid = fork();
 	if (pid == 0)
 	{
 
 		if (execve(cmd_path, args, env_vars) == -1)
-			error_msg(count, args, argv);
+			perror("Error!");
 	}
 	else
-		wait(&status);
+	{
+		do {
+			waitpid(pid, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+	}
 
 	free(cmd_path);
-	return (0);
+	return (status);
 }

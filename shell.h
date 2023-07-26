@@ -10,7 +10,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#define BUFF_SIZE 128
+#define BUF_SIZE 6144
 extern char **environ;
 /**
  *struct builtin_funcs - structure for built in functions

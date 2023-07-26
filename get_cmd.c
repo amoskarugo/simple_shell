@@ -11,15 +11,19 @@
 ssize_t read_stdin(char **line, size_t *bytes)
 {
 	static  char *buf;
-	ssize_t i, _read = 0, total = 0, buf_sz = 0;
+	ssize_t i, total = 0, buf_sz = 0;
+	ssize_t _read = 0;
+	size_t BUFF_SIZE = 10240000;
 
 	buf = (char *)malloc(BUFF_SIZE);
 	if (line == NULL || bytes == NULL)
 		return (-1);
 	if (*line == NULL || *bytes == 0)
 	{
+
 		*bytes = BUFF_SIZE;
-		*line = (char *)malloc(*bytes);
+		*line = (char *)malloc(BUFF_SIZE);
+
 		if (*line == NULL)
 		{
 			perror("memory allocation failed");

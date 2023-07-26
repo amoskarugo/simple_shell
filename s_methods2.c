@@ -34,6 +34,11 @@ char **tokenizer(char *lineptr, char *delim)
 	tokens[i] = NULL;
 	free(cpy);
 	free(lineptr);
+	if (tokens[0] == NULL)
+	{
+		free_block(tokens);
+		return (NULL);
+	}
 
 	return (tokens);
 }

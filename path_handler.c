@@ -38,7 +38,8 @@ char *path(char *cmd[], char *envp_vars[])
 			path_var = _duplicate(full_path);
 			free(path);
 			free(full_path);
-			break;
+			free_block(paths);
+			return (path_var);
 		}
 		else
 		{
@@ -47,5 +48,5 @@ char *path(char *cmd[], char *envp_vars[])
 		}
 	}
 	free_block(paths);
-	return (path_var);
+	return (NULL);
 }
